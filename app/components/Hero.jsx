@@ -15,7 +15,7 @@ function Hero() {
         default: { bottom: 250, right: 320, width: 160, height: 160 },
         scrolled: { bottom: 120, right: 230, width: 160, height: 160 },
         mobile: {
-          default: { bottom: 200, right: 130, width: 80, height: 80 },
+          default: { bottom: 180, right: 110, width: 70, height: 70 },
           scrolled: { bottom: 100, right: 70, width: 80, height: 80 },
         },
       },
@@ -23,7 +23,7 @@ function Hero() {
         default: { bottom: 270, left: 320, width: 120, height: 120 },
         scrolled: { bottom: 220, left: 170, width: 190, height: 190 },
         mobile: {
-          default: { bottom: 220, left: 130, width: 80, height: 80 },
+          default: { bottom: 195, left: 107, width: 70, height: 70 },
           scrolled: { bottom: 150, left: 80, width: 80, height: 80 },
         },
       },
@@ -31,15 +31,15 @@ function Hero() {
         default: { top: -70, right: 330, width: 120, height: 120 },
         scrolled: { top: -40, right: 350, width: 180, height: 180 },
         mobile: {
-          default: { top: -140, right: 130, width: 80, height: 80 },
-          scrolled: { top: -70, right: 120, width: 80, height: 80 },
+          default: { top: -130, right: 115, width: 70, height: 70 },
+          scrolled: { top: -70, right: 100, width: 80, height: 80 },
         },
       },
       pen: {
         default: { top: -150, left: 240, width: 160, height: 160 },
         scrolled: { top: 80, left: 240, width: 160, height: 160 },
         mobile: {
-          default: { top: -180, left: 100, width: 70, height: 70 },
+          default: { top: -160, left: 90, width: 70, height: 70 },
           scrolled: { top: -10, left: 110, width: 60, height: 60 },
         },
       },
@@ -109,7 +109,7 @@ function Hero() {
               ? { top: "2.5%", left: "5%", x: "0%", y: "0%", scale: 0.7 }
               : { top: "25px", left: "270px", x: "0%", y: "0%", scale: 0.6 }
             : isMobile
-            ? { top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1.7 }
+            ? { top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1.5 }
             : { top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 4 }
         }
         transition={{ duration: 0.5 }}
@@ -186,7 +186,7 @@ function Hero() {
           </span>
 
           <div className="inline-flex flex-col items-center relative space-y-4">
-            <span className="absolute left-[-100px] sm:left-[100px] md:left-[-50px] lg:left-[-100px] xl:left-[-250px] top-1/2 transform -translate-y-1/2 text-5xl sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[120px] text-black">
+            <span className="absolute left-[-85px] sm:left-[100px] md:left-[-50px] lg:left-[-100px] xl:left-[-250px] top-1/2 transform -translate-y-1/2 text-5xl sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[120px] text-black">
               with
             </span>
             <span className="text-black text-5xl sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[120px]">
