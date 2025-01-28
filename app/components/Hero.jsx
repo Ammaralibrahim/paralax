@@ -102,7 +102,7 @@ function Hero() {
     >
       <motion.div
         className="fixed z-50"
-        initial={{ top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 4 }}
+        initial={{ top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1 }}
         animate={
           scrolled
             ? isMobile
