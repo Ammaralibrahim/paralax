@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -6,8 +6,18 @@ import { motion } from "framer-motion";
 function Hero() {
   const [scrolled, setScrolled] = useState(false);
   const [initialScrollDone, setInitialScrollDone] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Added a state to track mobile view
   const sectionRef = useRef(null);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  // Detect if mobile on component mount
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile); // Listen for resize events
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const getPositionStyles = (imageKey) => {
     const positions = {
@@ -102,7 +112,7 @@ function Hero() {
     >
       <motion.div
         className="fixed z-50"
-        initial={{ top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1 }}
+        initial={{ top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1.5 }}
         animate={
           scrolled
             ? isMobile
