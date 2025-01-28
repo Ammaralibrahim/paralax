@@ -33,7 +33,7 @@ function Hero() {
         default: { bottom: 270, left: 320, width: 120, height: 120 },
         scrolled: { bottom: 220, left: 170, width: 190, height: 190 },
         mobile: {
-          default: { bottom: 195, left: 107, width: 70, height: 70 },
+          default: { bottom: 205, left: 90, width: 70, height: 70 },
           scrolled: { bottom: 150, left: 80, width: 80, height: 80 },
         },
       },
@@ -41,7 +41,7 @@ function Hero() {
         default: { top: -70, right: 330, width: 120, height: 120 },
         scrolled: { top: -40, right: 350, width: 180, height: 180 },
         mobile: {
-          default: { top: -130, right: 115, width: 70, height: 70 },
+          default: { top: -160, right: 105, width: 70, height: 70 },
           scrolled: { top: -70, right: 100, width: 80, height: 80 },
         },
       },
@@ -49,7 +49,7 @@ function Hero() {
         default: { top: -150, left: 240, width: 160, height: 160 },
         scrolled: { top: 80, left: 240, width: 160, height: 160 },
         mobile: {
-          default: { top: -160, left: 90, width: 70, height: 70 },
+          default: { top: -180, left: 80, width: 70, height: 70 },
           scrolled: { top: -10, left: 110, width: 60, height: 60 },
         },
       },
@@ -119,7 +119,7 @@ function Hero() {
               ? { top: "2.5%", left: "5%", x: "0%", y: "0%", scale: 0.7 }
               : { top: "25px", left: "270px", x: "0%", y: "0%", scale: 0.6 }
             : isMobile
-            ? { top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1.5 }
+            ? { top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 1.2 }
             : { top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 4 }
         }
         transition={{ duration: 0.5 }}
@@ -225,34 +225,7 @@ function Hero() {
             Seamlessly integrate with your LMS to boost <br /> student outcomes
             and reduce teacher workload
           </span>
-          <div className="flex justify-center w-full">
-          <button className="fixed bg-gradient-to-r from-[#0099FF] to-[#CC00FF] text-white px-16 py-4 sm:px-8 sm:py-4 md:px-24 md:py-5 rounded-2xl text-md sm:text-xl md:text-xl shadow-xl transition-all duration-300 transform hover:scale-105 group">
-  {/* Left stars */}
-  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex space-x-1">
-    <svg width="18" height="18" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d="M20.5909 3.1421C20.2365 2.69314 16.3396 5.37089 14.3934 5.6771C12.0447 6.06748 9.64153 5.61315 7.61423 4.39549C6.02995 3.47039 3.58413 0.0344596 3.14213 0.306406C2.74474 0.639123 5.2292 4.04722 5.60489 5.84294C6.11802 8.15152 5.78776 10.575 4.67336 12.679C3.76648 14.4281 -0.00810462 17.2766 0.306034 17.7546C0.660301 18.2045 4.55761 15.5264 6.50388 15.2202C8.85259 14.8295 11.2559 15.2838 13.2831 16.5017C14.8674 17.4268 17.3132 20.8628 17.7546 20.5913C18.1525 20.2582 15.6681 16.85 15.2924 15.0543C14.7795 12.7457 15.1097 10.3224 16.2239 8.21821C17.1308 6.46913 20.9049 3.62101 20.5909 3.1421Z" fill="white" stroke="#CDCDCD" strokeWidth="0.48" strokeMiterlimit="2.613"/>
-    </svg>
-
-    <svg width="18" height="18" className="mt-4" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d="M20.5909 3.1421C20.2365 2.69314 16.3396 5.37089 14.3934 5.6771C12.0447 6.06748 9.64153 5.61315 7.61423 4.39549C6.02995 3.47039 3.58413 0.0344596 3.14213 0.306406C2.74474 0.639123 5.2292 4.04722 5.60489 5.84294C6.11802 8.15152 5.78776 10.575 4.67336 12.679C3.76648 14.4281 -0.00810462 17.2766 0.306034 17.7546C0.660301 18.2045 4.55761 15.5264 6.50388 15.2202C8.85259 14.8295 11.2559 15.2838 13.2831 16.5017C14.8674 17.4268 17.3132 20.8628 17.7546 20.5913C18.1525 20.2582 15.6681 16.85 15.2924 15.0543C14.7795 12.7457 15.1097 10.3224 16.2239 8.21821C17.1308 6.46913 20.9049 3.62101 20.5909 3.1421Z" fill="white" stroke="#CDCDCD" strokeWidth="0.48" strokeMiterlimit="2.613"/>
-    </svg>
-  </div>
-
-  {/* Right stars */}
-  <div className="absolute right-4 top-1/2 -translate-y-1/2 flex space-x-1">
-    <svg width="18" height="18" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d="M20.5909 3.1421C20.2365 2.69314 16.3396 5.37089 14.3934 5.6771C12.0447 6.06748 9.64153 5.61315 7.61423 4.39549C6.02995 3.47039 3.58413 0.0344596 3.14213 0.306406C2.74474 0.639123 5.2292 4.04722 5.60489 5.84294C6.11802 8.15152 5.78776 10.575 4.67336 12.679C3.76648 14.4281 -0.00810462 17.2766 0.306034 17.7546C0.660301 18.2045 4.55761 15.5264 6.50388 15.2202C8.85259 14.8295 11.2559 15.2838 13.2831 16.5017C14.8674 17.4268 17.3132 20.8628 17.7546 20.5913C18.1525 20.2582 15.6681 16.85 15.2924 15.0543C14.7795 12.7457 15.1097 10.3224 16.2239 8.21821C17.1308 6.46913 20.9049 3.62101 20.5909 3.1421Z" fill="white" stroke="#CDCDCD" strokeWidth="0.48" strokeMiterlimit="2.613"/>
-    </svg>
-
-    <svg width="18" height="18" className="mt-4" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d="M20.5909 3.1421C20.2365 2.69314 16.3396 5.37089 14.3934 5.6771C12.0447 6.06748 9.64153 5.61315 7.61423 4.39549C6.02995 3.47039 3.58413 0.0344596 3.14213 0.306406C2.74474 0.639123 5.2292 4.04722 5.60489 5.84294C6.11802 8.15152 5.78776 10.575 4.67336 12.679C3.76648 14.4281 -0.00810462 17.2766 0.306034 17.7546C0.660301 18.2045 4.55761 15.5264 6.50388 15.2202C8.85259 14.8295 11.2559 15.2838 13.2831 16.5017C14.8674 17.4268 17.3132 20.8628 17.7546 20.5913C18.1525 20.2582 15.6681 16.85 15.2924 15.0543C14.7795 12.7457 15.1097 10.3224 16.2239 8.21821C17.1308 6.46913 20.9049 3.62101 20.5909 3.1421Z" fill="white" stroke="#CDCDCD" strokeWidth="0.48" strokeMiterlimit="2.613"/>
-    </svg>
-  </div>
-
-  Request a Demo Now
-</button>
-
-</div>
+         
         </motion.div>
       </motion.div>
     </section>
