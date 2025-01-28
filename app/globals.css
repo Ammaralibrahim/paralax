@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* custom.css veya tailwind config içinde */
+.custom-shadow {
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.205); /* İç gölgelendirme */
+}
+
+/* global.css */
+/* Çok ince scrollbar */
+::-webkit-scrollbar {
+  width: 2px; /* Dikey scrollbar genişliği */
+  height: 4px; /* Yatay scrollbar yüksekliği */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track rengi */
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: purple; /* Thumb rengi */
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Hover durumu */
+}
+
