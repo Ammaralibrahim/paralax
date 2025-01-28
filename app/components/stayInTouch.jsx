@@ -3,7 +3,7 @@ import React from "react";
 
 const StayInTouch = () => {
   return (
-    <section className="h-screen bg-blue-100 flex items-center justify-center">
+    <section className="h-screen bg-blue-100 flex items-center justify-center px-2">
       <div className="bg-blue-500 text-white py-16 px-8 md:px-6 lg:px-24 xl:px-32 rounded-2xl shadow-2xl max-w-7xl w-full text-center space-y-12">
         {/* Görsel */}
         <div>

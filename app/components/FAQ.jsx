@@ -18,17 +18,20 @@ const faqData = [
   {
     id: 3,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
-    content: "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
   },
   {
     id: 4,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
-    content: "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
   },
   {
     id: 5,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
-    content: "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
   },
 ];
 
@@ -37,19 +40,19 @@ const FAQSection = () => {
 
   // Animations for the FAQ and Image
   const faqVariants = {
-    hidden: { opacity: 0, x: 100 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { type: "spring", stiffness: 100, delay: 0.3 },
     },
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, x: -100 },
+    hidden: { opacity: 0, y: -50 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { type: "spring", stiffness: 100, delay: 0.2 },
     },
   };
@@ -129,11 +132,11 @@ const FAQSection = () => {
             className="hidden lg:flex items-center justify-center"
             variants={imageVariants}
           >
-            <div className="relative ">
+            <div className="relative">
               <motion.img
                 src="/soru.svg" // Resim yolunu güncelleyin
                 alt="Illustration"
-                className="w-[100%]  object-cover"
+                className="w-full max-w-[400px] object-contain mx-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -147,6 +150,22 @@ const FAQSection = () => {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Mobile Version */}
+        <motion.div
+          className="lg:hidden flex flex-col items-center justify-center mt-8"
+          initial="hidden"
+          animate="visible"
+          variants={imageVariants}
+        >
+          <motion.img
+            src="/soru.svg"
+            alt="Illustration"
+            className="w-full max-w-[300px] object-contain mx-auto mb-8"
+          />
+        </motion.div>
+
+       
       </div>
     </section>
   );

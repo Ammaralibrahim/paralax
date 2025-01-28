@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HappyUsers = () => {
   return (
-    <div className="bg-[#EAF4FF] py-16">
+    <div className="bg-[#EAF4FF] py-16 px-2">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Başlık */}
         <h2 className="text-4xl font-bold text-[#4C9BF3] mb-4">
