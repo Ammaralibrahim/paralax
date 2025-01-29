@@ -35,7 +35,7 @@ const Footer = () => {
       </div>
       <footer className="text-center w-full py-6 sm:py-10">
         <nav className="mb-4">
-          <ul className="flex flex-wrap justify-center space-x-6 text-sm sm:text-base text-gray-300">
+          <ul className="flex flex-wrap justify-center space-x-2 text-sm sm:text-base text-gray-300">
             {['Home', 'Feature', 'How it works', 'Testimonials', 'Join us', 'FAQs'].map((item) => (
               <li key={item}>
                 <a className="hover:underline" href="#">
