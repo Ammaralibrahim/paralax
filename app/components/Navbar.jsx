@@ -1,13 +1,17 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image'; 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function Navbar() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('EN');
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
@@ -18,9 +22,40 @@ function Navbar() {
   };
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 0.5);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isMobile) {
+        setScrolled(window.scrollY > 0.5);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current && !menuRef.current.contains(event.target) && 
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const navLinks = [
@@ -33,16 +68,17 @@ function Navbar() {
   ];
 
   return (
-    <nav className={`fixed bg-white h-[112px] sm:h-[100px] md:h-[112px] lg:h-[112px] xl:h-[112px] left-2 right-2 w-auto mx-4 my-4 rounded-lg custom-shadow z-20 transition-all ${scrolled ? 'opacity-100' : 'opacity-0'}`}>
+    <nav className={`fixed bg-white h-[112px] sm:h-[100px] md:h-[112px] lg:h-[112px] xl:h-[112px] left-2 right-2 w-auto mx-4 my-4 rounded-lg custom-shadow z-20 transition-all 
+      ${isMobile || scrolled ? 'opacity-100' : 'opacity-0'}`}>
       <div className="container mx-auto px-8 py-8 flex justify-between items-center z-50">
         {/* Logo */}
-        <div className="flex items-center opacity-0">
+        <div className="flex items-center">
           <Image
             src="/brightedu.svg"
             alt="Logo"
             width={100}
             height={100}
-            className="opacity-0 md:opacity-100"
+            className="opacity-100 sm:opacity-100 md:opacity-0 lg:opacity-0 xl:opacity-0"
           />
         </div>
 
@@ -69,8 +105,9 @@ function Navbar() {
               <Image src="/down.svg" alt="Down Arrow Icon" width={10} height={20} />
             </button>
 
-            {/* Dropdown Animation */}
-            <div className={`absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-10 transition-all duration-300 ease-in-out transform ${isDropdownOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            {/* Language Dropdown */}
+            <div className={`absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-10 transition-all duration-300 ease-in-out 
+              ${isDropdownOpen ? 'block' : 'hidden'}`}>
               <ul>
                 <li
                   className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
@@ -95,6 +132,7 @@ function Navbar() {
 
         {/* Mobile Menu Button */}
         <button 
+          ref={buttonRef} 
           onClick={toggleMobileMenu}
           className="md:hidden p-2 text-gray-600 transition-all duration-200 ease-in-out"
         >
@@ -108,14 +146,14 @@ function Navbar() {
               strokeLinecap="round" 
               strokeLinejoin="round" 
               strokeWidth={2} 
-              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
+              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
           </svg>
         </button>
       </div>
 
-      {/* Mobile Menu with Animation */}
-      <div className={`md:hidden bg-white absolute custom-shadow top-[102px] left-0 right-0 rounded-b-lg shadow-lg z-10 transition-all duration-300 ease-in-out transform ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+      {/* Mobile Menu */}
+      <div ref={menuRef} className={`md:hidden bg-white absolute custom-shadow top-[102px] left-0 right-0 rounded-b-lg shadow-lg z-50 transition-all duration-300 ease-in-out 
+        ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-6 py-4 space-y-4">
           {/* Mobile Links */}
           {navLinks.map((link) => (
@@ -140,8 +178,8 @@ function Navbar() {
               <Image src="/down.svg" alt="Down Arrow Icon" width={10} height={20} />
             </button>
 
-            {/* Dropdown Animation */}
-            <div className={`mt-2 w-full bg-white border rounded-lg shadow-lg transition-all duration-300 ease-in-out transform ${isDropdownOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <div className={`mt-2 w-full bg-white border rounded-lg shadow-lg transition-all duration-300 ease-in-out 
+              ${isDropdownOpen ? 'block' : 'hidden'}`}>
               <ul>
                 <li
                   className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
@@ -159,7 +197,6 @@ function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Contact Button */}
           <button className="w-full bg-[#5E3CB5] text-white py-2 px-4 rounded-lg mt-4 transition-all duration-200 ease-in-out">
             Contact Us
           </button>

@@ -39,7 +39,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Şerit (1. ve 2. Kart Arasında) */}
-        <div className="hidden sm:block absolute left-[381px] top-[200px] w-[63px] h-[40px] border-t-4 border-b-4 border-[#B8B2DB] bg-[#DEDCF5] z-10"></div>
+        <div className="hidden sm:block absolute left-[381px] top-[200px] w-[67px] h-[40px] border-t-4 border-b-4 border-[#B8B2DB] bg-[#DEDCF5] z-10"></div>
 
         {/* Orta Kartlar */}
         <div className="space-y-8 sm:space-y-12 lg:space-y-16">
@@ -60,7 +60,7 @@ const HowItWorks = () => {
           </div>
 
           {/* Şerit (3. ve 4. Kart Arasında) */}
-          <div className="hidden sm:block absolute left-[900px] top-[510px] w-[82px] h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
+          <div className="hidden sm:block absolute left-[900px] top-[510px] w-[78px] h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
 
           {/* Mor Kart */}
           <div className="h-[286px] w-full sm:w-[471px] bg-[#cbd7fe] rounded-xl shadow-lg p-6 border-4 border-[#8AB7FF] text-black">

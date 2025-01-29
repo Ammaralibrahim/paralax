@@ -13,159 +13,88 @@ const faqData = [
     id: 2,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
     content:
-      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam. ",
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa...",
   },
   {
     id: 3,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
     content:
-      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa...",
   },
   {
     id: 4,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
     content:
-      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa...",
   },
   {
     id: 5,
     title: "Lorem ipsum dolor sit amet consectetur. Viverra.",
     content:
-      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam.",
+      "Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa...",
   },
 ];
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // Animations for the FAQ and Image
-  const faqVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100, delay: 0.3 },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100, delay: 0.2 },
-    },
-  };
-
   return (
-    <section className="min-h-[80vh] flex items-center py-12 px-4 sm:px-6 lg:px-8 relative mt-16">
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center w-full z-10">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-lg text-gray-600 mb-6">
-          Quick answers to your most common queries
-        </p>
+    <section className="min-h-[80vh] flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 relative mt-16">
+      <div className="text-center w-full z-10">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h1>
+        <p className="text-lg text-gray-600 mb-6">Quick answers to your most common queries</p>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full pt-20">
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          whileOutOfView="hidden"
-          viewport={{ once: false }}
-        >
-          {/* Sol Taraf - FAQ */}
-          <motion.div
-            className="flex flex-col justify-center"
-            variants={faqVariants}
-          >
-            <div className="max-w-2xl mx-auto w-full">
-              {faqData.map((item, index) => (
-                <div
-                  key={item.id}
-                  className="mb-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+      {/* Mobilde Resim Üstte */}
+      <motion.div
+        className="lg:hidden flex justify-center mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.img src="/soru.svg" alt="Illustration" className="w-full max-w-xs object-contain" />
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="flex flex-col justify-center">
+          <div className="max-w-2xl mx-auto w-full">
+            {faqData.map((item, index) => (
+              <div key={item.id} className="mb-3 bg-white rounded-lg shadow-md">
+                <button
+                  className="w-full p-5 text-left flex items-center justify-between  border-b"
+                  onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                 >
-                  <button
-                    className="w-full p-5 text-left flex items-center justify-between"
-                    onClick={() =>
-                      setActiveIndex(activeIndex === index ? null : index)
-                    }
-                  >
-                    <div className="flex items-start">
-                      <span className="text-xl font-bold mr-3 text-blue-600">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <h2 className="text-xl font-semibold text-gray-800">
-                        {item.title}
-                      </h2>
-                    </div>
-                    <motion.span
-                      animate={{ rotate: activeIndex === index ? 45 : 0 }}
-                      className="text-3xl text-gray-600"
-                    >
-                      +
-                    </motion.span>
-                  </button>
+                  <div className="flex items-start">
+                    <span className="text-xl font-bold mr-3 text-gray-600">{String(index + 1).padStart(2, "0")}</span>
+                    <h2 className="text-lg font-semibold text-gray-800">{item.title}</h2>
+                  </div>
+                  <motion.span animate={{ rotate: activeIndex === index ? 360 : 0 }} className="text-4xl text-gray-600">
+                    {activeIndex === index ? "-" : "+"}
+                  </motion.span>
+                </button>
 
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: activeIndex === index ? "auto" : 0,
-                      opacity: activeIndex === index ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pb-4 pl-12 pr-6 text-gray-600 text-lg">
-                      {item.content}
-                    </div>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                <motion.div
+                  initial={false}
+                  animate={{ height: activeIndex === index ? "auto" : 0, opacity: activeIndex === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden bg-gray-50"
+                >
+                  <div className="p-5 text-gray-600 text-base">{item.content}</div>
+                </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-          {/* Sağ Taraf - Resim */}
-          <motion.div
-            className="hidden lg:flex items-center justify-center"
-            variants={imageVariants}
-          >
-            <div className="relative">
-              <motion.img
-                src="/soru.svg" // Resim yolunu güncelleyin
-                alt="Illustration"
-                className="w-full max-w-[400px] object-contain mx-auto"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              />
-              <motion.div
-                className="absolute inset-0 "
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              />
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Mobile Version */}
+        {/* Desktop için Sağda Resim */}
         <motion.div
-          className="lg:hidden flex flex-col items-center justify-center mt-8"
-          initial="hidden"
-          animate="visible"
-          variants={imageVariants}
+          className="hidden lg:flex items-center justify-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
-          <motion.img
-            src="/soru.svg"
-            alt="Illustration"
-            className="w-full max-w-[300px] object-contain mx-auto mb-8"
-          />
+          <motion.img src="/soru.svg" alt="Illustration" className="w-full max-w-[400px] object-contain mx-auto" />
         </motion.div>
-
-       
       </div>
     </section>
   );
