@@ -115,40 +115,32 @@ function Hero() {
       {/* Logo animasyonu - Hidden in Mobile Mode */}
       {/* Logo animasyonu - Sadece masaüstü görünür */}
       <motion.div
-        className="fixed z-50"
-        initial={{
+  className="fixed z-50 hidden md:block"  // 'hidden' class hides it on mobile, 'md:block' shows it from the 'md' breakpoint (typically >= 768px)
+  animate={
+    scrolled
+      ? {
+          top: "25px",
+          left: "270px",
+          x: "0%",
+          y: "0%",
+          scale: 0.6,
+          opacity: 1,
+        }
+      : {
           top: "50%",
           left: "50%",
           x: "-50%",
           y: "-50%",
-          scale: 1.5,
-          visibility: "hidden",
-        }}
-        animate={
-          isMobile
-            ? { opacity: 0 } // Mobil modda görünmez
-            : scrolled
-            ? {
-                top: "25px",
-                left: "270px",
-                x: "0%",
-                y: "0%",
-                scale: 0.6,
-                visibility: "block",
-              }
-            : {
-                top: "50%",
-                left: "50%",
-                x: "-50%",
-                y: "-50%",
-                scale: 4,
-                visibility: "block",
-              }
+          scale: 4,
+          opacity: 1,
         }
-        transition={{ duration: 0.5 }}
-      >
-        <Image src="/brightedu.svg" alt="Logo" width={200} height={200} />
-      </motion.div>
+  }
+  transition={{ duration: 0.5 }}
+>
+  <Image src="/brightedu.svg" alt="Logo" width={200} height={200} />
+</motion.div>
+
+
 
       {/* Floating Images */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
