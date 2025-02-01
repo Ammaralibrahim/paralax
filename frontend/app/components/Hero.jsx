@@ -36,20 +36,33 @@ function Hero() {
 
     // Set a timer to scroll if no user interaction within 3 seconds
     const scrollTimer = setTimeout(() => {
+      setScrolled(true); // This ensures scrolling happens
+      if(setScrolled(true)){
+        window.scrollTo({ top: 3, behavior: "smooth" });
+
+      }
       handleScrollStart();
     }, 3000);
+
+
+    const navTimer = setTimeout(() => {
+      setScrolled(true); // This ensures scrolling happens
+        window.scrollTo({ top: 10, behavior: "smooth" });
+    }, 3000);
+
 
     return () => {
       window.removeEventListener("wheel", handleScrollStart);
       window.removeEventListener("touchmove", handleScrollStart);
       clearTimeout(scrollTimer);
+      clearTimeout(navTimer);
     };
   }, [initialScrollDone, scrolledState]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const atTop = scrollTop < 1;
+      const atTop = scrollTop > 1;
 
       if (atTop && initialScrollDone) {
         setScrolled(false);
@@ -62,21 +75,12 @@ function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [initialScrollDone, scrolledState]);
 
-  useEffect(() => {
-    if (initialScrollDone) {
-      document.body.style.overflow = "auto"; // Enable scrolling
-    } else {
-      document.body.style.overflow = "hidden"; // Disable scrolling
-    }
-    return () => {
-      document.body.style.overflow = "auto"; // Re-enable scrolling on cleanup
-    };
-  }, [initialScrollDone]);
+
 
   const getPositionStyles = (imageKey) => {
     const positions = {
       mezun: {
-        default: { bottom: 120, right: 320, width: 160, height: 160 },
+        default: { bottom: 40, right: 320, width: 160, height: 160 },
         scrolled: { bottom: 40, right: 230, width: 160, height: 160 },
         mobile: {
           default: { bottom: 100, right: 70, width: 80, height: 80 },
@@ -84,7 +88,7 @@ function Hero() {
         },
       },
       girl: {
-        default: { bottom: 170, left: 320, width: 120, height: 120 },
+        default: { bottom: 80, left: 320, width: 120, height: 120 },
         scrolled: { bottom: 100, left: 130, width: 190, height: 190 },
         mobile: {
           default: { bottom: 150, left: 80, width: 80, height: 80 },
@@ -92,7 +96,7 @@ function Hero() {
         },
       },
       boy: {
-        default: { top: 30, right: 350, width: 120, height: 120 },
+        default: { top: 100, right: 350, width: 120, height: 120 },
         scrolled: { top: 30, right: 300, width: 180, height: 180 },
         mobile: {
           default: { top: -60, right: 100, width: 80, height: 80 },
@@ -100,7 +104,7 @@ function Hero() {
         },
       },
       pen: {
-        default: { top: -70, left: 240, width: 160, height: 160 },
+        default: { top: 30, left: 240, width: 160, height: 160 },
         scrolled: { top: 120, left: 220, width: 160, height: 160 },
         mobile: {
           default: { top: -10, left: 110, width: 60, height: 60 },
@@ -124,7 +128,7 @@ function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white text-white h-[117vh] py-32 flex items-center justify-center overflow-hidden"
+      className="relative bg-white text-white h-[100vh] py-0 flex items-center justify-center "
     >
       {/* Logo animation */}
       <motion.div
@@ -253,7 +257,7 @@ function Hero() {
             and reduce teacher workload
           </span>
 
-          <button className="fixed bg-gradient-to-r mt-14 from-[#0099FF] to-[#CC00FF] text-white px-16 py-3 sm:px-8 sm:py-4 md:px-20 md:py-2 rounded-2xl text-md sm:text-xl md:text-xl shadow-xl transition-all duration-300 transform hover:scale-105 group">
+          <button className="fixed bg-gradient-to-r mt-14 from-[#0099FF] to-[#CC00FF] text-white px-16 py-3 sm:px-8 sm:py-4 md:px-20 md:py-2 rounded-2xl text-md sm:text-xl md:text-xl   transition-all duration-300 transform hover:scale-105 group">
               {/* Left stars */}
               <div className="absolute left-4 top-1/2 -translate-y-1/2 flex space-x-1">
                 <svg
@@ -338,10 +342,15 @@ function Hero() {
             <div className="fixed top-32 flex justify-center  flex-col items-center">
         <Image src="/heroicon.svg" alt="Logo" width={30} height={30} />
 
-        <span className="text-gray-400 text-sm md:text-[16px] font-normal pb-4">
+        <span className="text-[#5E3CB5] text-md md:text-[26px] font-bold pb-4 ">
+            Smarter nd easiest learning  with <br /> our advanced tool!
+          </span>
+
+          <span className="text-black  md:text-[23px] font-normal pb-4">
             Seamlessly integrate with your LMS to boost <br /> student outcomes
             and reduce teacher workload
           </span>
+
           
         </div>
         

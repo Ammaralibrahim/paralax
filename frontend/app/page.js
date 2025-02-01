@@ -8,9 +8,11 @@ import HowItWorks from "./components/HowItWorks";
 import MoHowItWorks from "./components/mobile/MoHowItWorks";  // Import MoHowItWorks for mobile version
 import HappyUsers from "./components/happyUser";
 import MoHappyUsers from "./components/mobile/MoHappyUserSay"; // Import MoHappyUsers for mobile
+import MoFaq from "./components/mobile/MoFaq"; // Import MoHappyUsers for mobile
 import StayInTouch from "./components/stayInTouch";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
+
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -34,7 +36,7 @@ export default function Home() {
       {isMobile ? <MoHowItWorks /> : <HowItWorks />} {/* Switch between HowItWorks and MoHowItWorks based on screen size */}
       {isMobile ? <MoHappyUsers /> : <HappyUsers />}  {/* Mobil için MoHappyUsers eklendi */}
       <StayInTouch />
-      <FAQ />
+      {isMobile ? <MoFaq /> : <FAQ />}  {/* Mobil için MoHappyUsers eklendi */}
       <Footer />
     </div>
   );

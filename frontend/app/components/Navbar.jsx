@@ -107,7 +107,7 @@ function Navbar() {
             </button>
 
             {/* Language Dropdown */}
-            <div className={`absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-10 transition-all duration-300 ease-in-out 
+            <div className={`absolute right-0 mt-2 w-48 bg-white border rounded-lg   z-10 transition-all duration-300 ease-in-out 
               ${isDropdownOpen ? 'block' : 'hidden'}`}>
               <ul>
                 <li
@@ -155,7 +155,7 @@ function Navbar() {
       {/* Mobile Sidebar */}
  {/* Mobile Sidebar */}
 <div
-  className={`md:hidden fixed top-0 left-0 h-full w-96 bg-white shadow-lg z-50 pt-5 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+  className={`md:hidden fixed top-0 left-0 h-full w-96 bg-white   z-50 pt-5 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
     }`}
 >
   <div className="px-4 py-8">
@@ -212,7 +212,7 @@ function Navbar() {
         <Image src="/down.svg" alt="Down Arrow Icon" width={10} height={20} />
       </button>
 
-      <div className={`mt-2 w-full bg-white border rounded-lg shadow-lg transition-all duration-300 ease-in-out 
+      <div className={`mt-2 w-full bg-white border rounded-lg   transition-all duration-300 ease-in-out 
         ${isDropdownOpen ? 'block' : 'hidden'}`}>
         <ul>
           <li

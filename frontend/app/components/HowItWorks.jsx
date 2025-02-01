@@ -13,7 +13,7 @@ const HowItWorks = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
         {/* Mavi Kart */}
-        <div className="w-full h-[600px] bg-[#DEDCF5] rounded-xl shadow-lg overflow-hidden border-4 border-[#B8B2DB] text-black relative ">
+        <div className="w-full h-[600px] bg-[#DEDCF5] rounded-xl   overflow-hidden border-4 border-[#B8B2DB] text-black relative ">
           <div className="h-[248px] relative">
             <Image
               src="/hiw1.svg"
@@ -63,7 +63,7 @@ const HowItWorks = () => {
           <div className="hidden sm:block absolute left-[914px] top-[710px] w-[47px]  h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
 
           {/* Mor Kart */}
-          <div className="h-[286px] w-full sm:w-[471px] bg-[#cbd7fe] rounded-xl shadow-lg p-6 border-4 border-[#8AB7FF] text-black">
+          <div className="h-[286px] w-full sm:w-[471px] bg-[#cbd7fe] rounded-xl   p-6 border-4 border-[#8AB7FF] text-black">
             <div className="flex items-center justify-between mb-4">
               <div className="relative">
                 <Image src="/3.svg" alt="Quiz" width={54} height={54} />
@@ -83,7 +83,7 @@ const HowItWorks = () => {
 
 
         {/* Turuncu Kart */}
-        <div className="w-full sm:w-[382px] h-[600px] bg-[#FFB3004D] rounded-xl shadow-lg overflow-hidden border-4 border-[#FB8C0066] text-black sm:ml-20">
+        <div className="w-full sm:w-[382px] h-[600px] bg-[#FFB3004D] rounded-xl   overflow-hidden border-4 border-[#FB8C0066] text-black sm:ml-20">
           <div className="h-[248px] relative flex justify-center items-center">
             <Image
               src="/hiw4.svg"

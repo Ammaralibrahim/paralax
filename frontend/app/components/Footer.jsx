@@ -8,7 +8,7 @@ const Footer = () => {
           Join Schools Transforming <br /> Education Today
         </h1>
       </div>
-      <button className="mt-4 bg-gradient-to-r from-[#0099FF] to-[#CC00FF] text-white px-16 py-2 sm:px-8 sm:py-4 md:px-24 md:py-3 rounded-2xl text-md sm:text-xl md:text-xl shadow-xl transition-all duration-300 transform hover:scale-105 group">
+      <button className="mt-4 bg-gradient-to-r from-[#0099FF] to-[#CC00FF] text-white px-16 py-2 sm:px-8 sm:py-4 md:px-24 md:py-3 rounded-2xl text-md sm:text-xl md:text-xl   transition-all duration-300 transform hover:scale-105 group">
   {/* Left stars */}
   <div className="absolute left-4 top-1/2 -translate-y-1/2 flex space-x-1">
     <svg width="15" height="15" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +35,8 @@ const Footer = () => {
 </button>
       <footer className="text-center w-full py-6 sm:py-10">
         <nav className="mb-4">
-          <ul className="flex flex-wrap justify-center space-x-[48px] text-sm sm:text-base text-gray-300">
-            {['Home', 'Feature', 'How it works', 'Testimonials', 'Join us', 'FAQs'].map((item) => (
+        <ul className="flex flex-wrap justify-center space-x-4 sm:space-x-[48px] text-xs sm:text-base text-gray-300">
+        {['Home', 'Feature', 'How it works', 'Testimonials', 'Join us', 'FAQs'].map((item) => (
               <li key={item}>
                 <a className="hover:underline" href="#">
                   {item}

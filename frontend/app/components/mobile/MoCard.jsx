@@ -62,7 +62,7 @@ export default function ScrollCards() {
               </h2>
 
               <div
-                className={`relative ${card.bgColor} rounded-[20px] md:rounded-[40px] p-6 shadow-xl md:shadow-2xl`}
+                className={`relative ${card.bgColor} rounded-[20px] md:rounded-[40px] p-6   md: `}
               >
                 <div
                   className={`flex flex-col ${

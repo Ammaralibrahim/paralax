@@ -157,7 +157,7 @@ export default function ScrollCards() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[500vh] md:h-[600vh] bg-white"
+      className=" h-[500vh] md:h-[600vh] bg-white"
       id="features"
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">

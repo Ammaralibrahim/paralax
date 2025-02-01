@@ -24,7 +24,7 @@ const MoHappyUserSay = () => {
 
           {/* Mavi Kart */}
           <div className="w-full lg:w-[60%] mb-6">
-            <div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg text-center flex justify-between min-h-[160px]">
+            <div className="bg-blue-500 text-white p-4 rounded-lg   text-center flex justify-between min-h-[160px]">
               <div className="text-left">
                 <div className="text-4xl font-bold">
                   4.9<span className="text-2xl font-normal">/5</span>
@@ -48,7 +48,7 @@ const MoHappyUserSay = () => {
             { name: "John Doe", role: "Engineer", image: "/oliver.svg", text: "The platform has helped me improve my skills significantly." },
             { name: "Jane Smith", role: "Designer", image: "/amelia.svg", text: "I love the interactive features and easy-to-follow design." }
           ].map((user, index) => (
-            <div key={index} className="bg-white flex flex-col justify-between p-6 rounded-xl shadow-lg border border-gray-200 min-w-[300px] max-w-[320px] min-h-[250px]">
+            <div key={index} className="bg-white flex flex-col justify-between p-6 rounded-xl   border border-gray-200 min-w-[300px] max-w-[320px] min-h-[250px]">
               <div>
                 <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4">
                   <Image src={user.image} alt="User" layout="fill" objectFit="cover" />

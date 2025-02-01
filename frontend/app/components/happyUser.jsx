@@ -66,7 +66,7 @@ const HappyUsers = () => {
 
                 {/* Oliver Kartı */}
                 <motion.div
-                  className="bg-white flex justify-between flex-col rounded-lg p-6 shadow-md w-full min-h-[382px]"
+                  className="bg-white flex justify-between flex-col rounded-lg p-6  w-full min-h-[382px]"
                   initial={{ x: 50 }}
                   whileInView={{ x: 0 }}
                   transition={{ type: "spring", stiffness: 700 }}

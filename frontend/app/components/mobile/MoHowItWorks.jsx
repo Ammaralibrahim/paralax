@@ -16,7 +16,7 @@ const MoHowItWorks = () => {
       <div className="space-y-16">
 
         {/* Step 1 */}
-        <div className="flex flex-col items-center bg-[#DEDCF5] rounded-xl shadow-lg overflow-hidden border-4 border-[#B8B2DB] text-black p-6">
+        <div className="flex flex-col items-center bg-[#DEDCF5] rounded-xl   overflow-hidden border-4 border-[#B8B2DB] text-black p-6">
           <div className="relative w-[220px] h-[220px] mb-4">
             <Image
               src="/hiw1.svg"
@@ -37,7 +37,7 @@ const MoHowItWorks = () => {
         </div>
 
         {/* Step 2 */}
-        <div className="flex flex-col items-center bg-[#FF0F4D4D] rounded-xl shadow-lg overflow-hidden border-4 border-[#FF9EB7] text-black p-6">
+        <div className="flex flex-col items-center bg-[#FF0F4D4D] rounded-xl   overflow-hidden border-4 border-[#FF9EB7] text-black p-6">
           <div className="relative w-[220px] h-[220px] mb-4">
             <Image
               src="/hiw2.svg"
@@ -58,7 +58,7 @@ const MoHowItWorks = () => {
         </div>
 
         {/* Step 3 */}
-        <div className="flex flex-col items-center bg-[#cbd7fe] rounded-xl shadow-lg overflow-hidden border-4 border-[#8AB7FF] text-black p-6">
+        <div className="flex flex-col items-center bg-[#cbd7fe] rounded-xl   overflow-hidden border-4 border-[#8AB7FF] text-black p-6">
           <div className="relative w-[220px] h-[220px] mb-4">
             <Image
               src="/hiw3.svg"
@@ -79,7 +79,7 @@ const MoHowItWorks = () => {
         </div>
 
         {/* Step 4 */}
-        <div className="flex flex-col items-center bg-[#FFB3004D] rounded-xl shadow-lg overflow-hidden border-4 border-[#FB8C0066] text-black p-6">
+        <div className="flex flex-col items-center bg-[#FFB3004D] rounded-xl   overflow-hidden border-4 border-[#FB8C0066] text-black p-6">
           <div className="relative w-[220px] h-[220px] mb-4">
             <Image
               src="/hiw4.svg"

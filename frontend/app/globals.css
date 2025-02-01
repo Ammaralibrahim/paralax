@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+*{
+  font-family: "Parkinsans", serif;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,4 +1,4 @@
-<button className="fixed bg-gradient-to-r mt-14 from-[#0099FF] to-[#CC00FF] text-white px-16 py-3 sm:px-8 sm:py-4 md:px-20 md:py-2 rounded-2xl text-md sm:text-xl md:text-xl shadow-xl transition-all duration-300 transform hover:scale-105 group">
+<button className="fixed bg-gradient-to-r mt-14 from-[#0099FF] to-[#CC00FF] text-white px-16 py-3 sm:px-8 sm:py-4 md:px-20 md:py-2 rounded-2xl text-md sm:text-xl md:text-xl   transition-all duration-300 transform hover:scale-105 group">
               {/* Left stars */}
               <div className="absolute left-4 top-1/2 -translate-y-1/2 flex space-x-1">
                 <svg
