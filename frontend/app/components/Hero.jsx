@@ -9,6 +9,9 @@ function Hero() {
   const [initialScrollDone, setInitialScrollDone] = useState(false);
   const sectionRef = useRef(null);
 
+  // Track the scroll state for floating images
+  const [scrolledState, setScrolledState] = useState(false);
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -22,6 +25,11 @@ function Hero() {
         setInitialScrollDone(true);
         setScrolled(true);
       }
+
+      // If scroll has happened, update the scroll state
+      if (!scrolledState) {
+        setScrolledState(true);
+      }
     };
 
     window.addEventListener("wheel", handleScrollStart, { passive: true });
@@ -30,7 +38,7 @@ function Hero() {
       window.removeEventListener("wheel", handleScrollStart);
       window.removeEventListener("touchmove", handleScrollStart);
     };
-  }, [initialScrollDone]);
+  }, [initialScrollDone, scrolledState]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,16 +47,15 @@ function Hero() {
 
       if (atTop && initialScrollDone) {
         setScrolled(false);
-      } else if (!atTop && initialScrollDone) {
+      } else if (!atTop && initialScrollDone && !scrolledState) {
         setScrolled(true);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [initialScrollDone]);
+  }, [initialScrollDone, scrolledState]);
 
-  // Sayfa scroll engelleme
   useEffect(() => {
     if (initialScrollDone) {
       document.body.style.overflow = "auto"; // Kaydırma etkin
@@ -95,7 +102,7 @@ function Hero() {
         },
       },
     };
-    const state = scrolled ? "scrolled" : "default";
+    const state = scrolled || scrolledState ? "scrolled" : "default";
     return isMobile
       ? positions[imageKey].mobile[state]
       : positions[imageKey][state];
@@ -117,7 +124,7 @@ function Hero() {
       <motion.div
         className="fixed z-50 hidden md:block"
         animate={
-          scrolled
+          initialScrollDone
             ? {
                 top: "10px",
                 left: "270px",
@@ -194,8 +201,8 @@ function Hero() {
           y: "100vh",
         }}
         animate={{
-          opacity: scrolled || isMobile ? 1 : 0,
-          y: isMobile ? "-70%" : scrolled ? "-50%" : "100vh",
+          opacity: initialScrollDone || isMobile ? 1 : 0,
+          y: isMobile ? "-70%" : initialScrollDone ? "-50%" : "100vh",
         }}
         transition={{
           type: "spring",
@@ -230,8 +237,8 @@ function Hero() {
           className="flex flex-col items-center"
           initial={{ opacity: 0, y: 100 }}
           animate={{
-            opacity: scrolled ? 1 : isMobile ? 1 : 0,
-            y: scrolled ? 50 : isMobile ? 50 : 50,
+            opacity: scrolled || isMobile ? 1 : 0,
+            y: scrolled || isMobile ? 50 : 50,
           }}
           transition={{ delay: 0.3, duration: 1.2 }}
         >
@@ -239,26 +246,6 @@ function Hero() {
             Seamlessly integrate with your LMS to boost <br /> student outcomes
             and reduce teacher workload
           </span>
-          <div className="flex justify-center w-full">
-            <div className="text-center fixed translate-y-36 hidden sm:block md:block lg:hidden xl:hidden">
-              <Image
-                src="/heroicon.svg"
-                className="mx-auto"
-                alt="Logo"
-                width={20}
-                height={20}
-              />
-
-              <div className="grid justify-center px-2">
-                <p className="text-xl md:text-2xl font-bold mt-4 text-gray-200">
-                  Smarter and easier learning <br /> with our advanced tool!<br />
-                </p>
-                <p className="text-sm text-gray-600 mt-2 px-6 md:px-12">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </div>
-          </div>
         </motion.div>
       </motion.div>
     </section>

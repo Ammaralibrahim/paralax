@@ -8,6 +8,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isFirstLoad, setIsFirstLoad] = useState(true); // İlk yükleme durumu
 
   const menuRef = useRef(null);
 
@@ -33,13 +34,18 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       if (!isMobile) {
-        setScrolled(window.scrollY > 1);
+        if (window.scrollY > 2) {
+          setScrolled(true); // Kaydırma olduğunda navbar'ı göster
+        }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+
+    // İlk yükleme tamamlandığında, navbar'ı gizle
+   
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, isFirstLoad]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -64,7 +70,7 @@ function Navbar() {
 
   return (
     <nav className={`fixed flex justify-center items-center bg-white h-[112px] sm:h-[100px] md:h-[112px] lg:h-[112px] xl:h-[90px] left-2 right-2 w-auto mx-4 my-4 rounded-lg custom-shadow z-20 transition-all 
-      ${isMobile || scrolled ? 'opacity-100' : 'opacity-0'}`}>
+      ${scrolled || !isFirstLoad ? 'opacity-100' : 'opacity-0'}`}>
       <div className="container mx-auto px-8 py-8 flex justify-between items-center z-50">
         {/* Logo */}
         <div className="flex items-center">
