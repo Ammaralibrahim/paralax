@@ -39,9 +39,9 @@ const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <section className="min-h-[80vh] flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 relative mt-16">
+    <section className="min-h-[80vh] flex flex-col items-center py-32 px-4 sm:px-6 lg:px-8 relative mt-16" id="faqs">
       <div className="text-center w-full z-10">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h1>
+        <h1 className="text-3xl font-bold text-[#EACF77] mb-4">Frequently Asked Questions</h1>
         <p className="text-lg text-gray-600 mb-6">Quick answers to your most common queries</p>
       </div>
 
@@ -59,9 +59,9 @@ const FAQSection = () => {
         <div className="flex flex-col justify-center">
           <div className="max-w-2xl mx-auto w-full">
             {faqData.map((item, index) => (
-              <div key={item.id} className="mb-3 bg-white rounded-lg shadow-md">
+              <div key={item.id} className="mb-3 bg-white rounded-lg ">
                 <button
-                  className="w-full p-5 text-left flex items-center justify-between  border-b"
+                  className="w-full p-5 text-left flex items-center justify-between rounded-md border border-gray-200"
                   onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                 >
                   <div className="flex items-start">

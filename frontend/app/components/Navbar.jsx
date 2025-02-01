@@ -61,11 +61,11 @@ function Navbar() {
 
   const navLinks = [
     { href: "/", text: "Home" },
-    { href: "/features", text: "Our Features" },
-    { href: "/how-it-works", text: "How it Works" },
-    { href: "/faqs", text: "FAQs" },
-    { href: "/testimonials", text: "Testimonials" },
-    { href: "/contact", text: "Contact" },
+    { href: "#features", text: "Our Features" },
+    { href: "#how-it-works", text: "How it Works" },
+    { href: "#faqs", text: "FAQs" },
+    { href: "#testimonials", text: "Testimonials" },
+    { href: "#contact", text: "Contact Us" },
   ];
 
   return (

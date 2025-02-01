@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const HowItWorks = () => {
   return (
-    <div className="max-w-7xl mx-auto py-8 relative px-3">
+    <div className="max-w-7xl mx-auto py-8 pt-32 relative px-3" id='how-it-works'>
       <div className="text-center mb-12">
         <h2 className="text-[32px] font-bold text-[#6C4ECC]">How it’s work</h2>
         <p className="text-[24px] text-black">Discover how it’s work</p>
@@ -13,7 +13,7 @@ const HowItWorks = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
         {/* Mavi Kart */}
-        <div className="w-full h-[600px] bg-[#DEDCF5] rounded-xl shadow-lg overflow-hidden border-4 border-[#B8B2DB] text-black relative">
+        <div className="w-full h-[600px] bg-[#DEDCF5] rounded-xl shadow-lg overflow-hidden border-4 border-[#B8B2DB] text-black relative ">
           <div className="h-[248px] relative">
             <Image
               src="/hiw1.svg"
@@ -39,12 +39,12 @@ const HowItWorks = () => {
         </div>
 
         {/* Şerit (1. ve 2. Kart Arasında) */}
-        <div className="hidden sm:block absolute left-[381px] top-[200px] w-[67px] h-[40px] border-t-4 border-b-4 border-[#B8B2DB] bg-[#DEDCF5] z-10"></div>
+        <div className="hidden sm:block absolute left-[395px] top-[300px] w-[52px] h-[40px] border-t-4 border-b-4 border-[#B8B2DB] bg-[#DEDCF5] z-10"></div>
 
         {/* Orta Kartlar */}
-        <div className="space-y-8 sm:space-y-12 lg:space-y-16">
+        <div className="space-y-7">
           {/* Yeşil Kart */}
-          <div className="h-[286px] w-full sm:w-[471px] bg-[#FF0F4D4D] rounded-xl shadow-lg p-6 border-4 border-[#FF9EB7] text-black">
+          <div className="h-[286px] w-full sm:w-[471px] bg-[#FF0F4D4D] rounded-xl  p-6 border-4 border-[#FF9EB7] text-black">
             <div className="flex items-center text-center justify-between mb-4">
               <div className="relative">
                 <Image src="/2.svg" alt="Book" width={32} height={32} className="text-green-600" />
@@ -60,7 +60,7 @@ const HowItWorks = () => {
           </div>
 
           {/* Şerit (3. ve 4. Kart Arasında) */}
-          <div className="hidden sm:block absolute left-[900px] top-[510px] w-[78px] h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
+          <div className="hidden sm:block absolute left-[914px] top-[610px] w-[47px]  h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
 
           {/* Mor Kart */}
           <div className="h-[286px] w-full sm:w-[471px] bg-[#cbd7fe] rounded-xl shadow-lg p-6 border-4 border-[#8AB7FF] text-black">
@@ -78,9 +78,12 @@ const HowItWorks = () => {
             </p>
           </div>
         </div>
+ 
+        <div className="hidden sm:block absolute left-[650px] top-[450px] w-[52px] h-[28px] border-l-4 border-r-4 border-[#FF9EB7] bg-[#FF0F4D4D] z-10"></div>
+
 
         {/* Turuncu Kart */}
-        <div className="w-full sm:w-[382px] h-[600px] bg-[#FFB3004D] rounded-xl shadow-lg overflow-hidden border-4 border-[#FB8C0066] text-black sm:ml-24">
+        <div className="w-full sm:w-[382px] h-[600px] bg-[#FFB3004D] rounded-xl shadow-lg overflow-hidden border-4 border-[#FB8C0066] text-black sm:ml-20">
           <div className="h-[248px] relative flex justify-center items-center">
             <Image
               src="/hiw4.svg"

@@ -2,12 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <section className="h-auto bg-gradient-to-r from-[#247be8] via-[#394578] to-[#885cc6] flex flex-col justify-between items-center text-white py-10 sm:h-[750px]">
+    <section className="footer-section relative h-auto gradient flex flex-col justify-between items-center text-white py-10 sm:h-[750px]">
       <div className="text-center mt-10 sm:mt-20">
-        <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold footer-text">
           Join Schools Transforming <br /> Education Today
         </h1>
-        <button className="mt-4 bg-gradient-to-r from-[#0099FF] to-[#CC00FF] text-white px-16 py-4 sm:px-8 sm:py-4 md:px-24 md:py-5 rounded-2xl text-md sm:text-xl md:text-xl shadow-xl transition-all duration-300 transform hover:scale-105 group">
+      </div>
+      <button className="mt-4 bg-gradient-to-r from-[#0099FF] to-[#CC00FF] text-white px-16 py-4 sm:px-8 sm:py-4 md:px-24 md:py-3 rounded-2xl text-md sm:text-xl md:text-xl shadow-xl transition-all duration-300 transform hover:scale-105 group">
   {/* Left stars */}
   <div className="absolute left-4 top-1/2 -translate-y-1/2 flex space-x-1">
     <svg width="18" height="18" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +33,6 @@ const Footer = () => {
 
   Request a Demo Now
 </button>
-      </div>
       <footer className="text-center w-full py-6 sm:py-10">
         <nav className="mb-4">
           <ul className="flex flex-wrap justify-center space-x-2 text-sm sm:text-base text-gray-300">

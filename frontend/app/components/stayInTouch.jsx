@@ -1,9 +1,11 @@
-// components/StayInTouch.tsx
 import React from "react";
 
 const StayInTouch = () => {
   return (
-    <section className="h-screen bg-blue-100 flex items-center justify-center px-2">
+    <section className="h-auto py-32 flex flex-col items-center justify-center px-2 space-y-6" id="contact">
+      {/* Section Başlığı */}
+   
+
       <div className="bg-blue-500 text-white py-16 px-8 md:px-6 lg:px-24 xl:px-32 rounded-2xl shadow-2xl max-w-7xl w-full text-center space-y-12">
         {/* Görsel */}
         <div>
@@ -20,7 +22,7 @@ const StayInTouch = () => {
           <br />
           Drop your email for
           <br />
-           updates & more!
+          updates & more!
         </h1>
 
         {/* Input ve Buton */}
@@ -28,9 +30,9 @@ const StayInTouch = () => {
           <input
             type="email"
             placeholder="Enter Your Email"
-            className="px-4 md: rounded-full w-full md:w-[400px] text-black text-lg focus:ring-4 focus:ring-blue-300 transition"
+            className="px-4 rounded-full w-full md:w-[400px] text-black text-lg focus:ring-4 focus:ring-blue-300 transition"
           />
-          <button className="bg-black text-white px-6 py-2  rounded-full text-md font-semibold hover:bg-gray-800 transition">
+          <button className="bg-black text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-gray-800 transition">
             Send
           </button>
         </div>

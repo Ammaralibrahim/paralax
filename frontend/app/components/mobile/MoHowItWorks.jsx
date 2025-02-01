@@ -6,7 +6,7 @@ const MoHowItWorks = () => {
   const cardHeight = 'h-[600px]';
 
   return (
-    <div className="max-w-7xl mx-auto py-8 relative px-3">
+    <div className="max-w-7xl mx-auto py-8 relative px-3" id='how-it-works'>
       <div className="text-center mb-12">
         <h2 className="text-[32px] font-bold text-[#6C4ECC]">How it’s work</h2>
         <p className="text-[24px] text-black">Discover how it works</p>

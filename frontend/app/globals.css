@@ -29,3 +29,46 @@
   background: #555; /* Hover durumu */
 }
 
+.gradient {
+  background-image: linear-gradient(
+    115deg,
+    hsl(213deg 81% 53%) 0%,
+    hsl(220deg 53% 48%) 20%,
+    hsl(226deg 41% 39%) 39%,
+    hsl(234deg 34% 40%) 59%,
+    hsl(249deg 33% 50%) 79%,
+    hsl(265deg 48% 57%) 100%
+  );
+}
+
+.footer-text{
+  color: #f1f1f1;
+  background-image: linear-gradient(
+  300deg,
+  hsl(270, 36%, 82%) 50%,
+  hsl(264, 8%, 88%) 80%,
+  hsl(264, 8%, 88%) 80%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-section {
+  position: relative;
+  overflow: hidden; /* Taşmaları engellemek için */
+}
+
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../public/footerbg.svg'); /* Resim yolu */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 100; /* Şeffaflık ayarı */
+  z-index: 0; /* İçeriğin arkasına göndermek için */
+}
