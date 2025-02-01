@@ -8,7 +8,6 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(true); // İlk yükleme durumu
 
   const menuRef = useRef(null);
 
@@ -35,17 +34,18 @@ function Navbar() {
     const handleScroll = () => {
       if (!isMobile) {
         if (window.scrollY > 2) {
-          setScrolled(true); // Kaydırma olduğunda navbar'ı göster
+          setScrolled(true);
         }
+      } else {
+        setScrolled(true); // Mobile modunda her zaman görünür
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
 
-    // İlk yükleme tamamlandığında, navbar'ı gizle
-   
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile, isFirstLoad]);
+  }, [isMobile]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -60,7 +60,7 @@ function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "/", text: "Home" },
+    { href: "#", text: "Home" },
     { href: "#features", text: "Our Features" },
     { href: "#how-it-works", text: "How it Works" },
     { href: "#faqs", text: "FAQs" },
@@ -70,7 +70,7 @@ function Navbar() {
 
   return (
     <nav className={`fixed flex justify-center items-center bg-white h-[112px] sm:h-[100px] md:h-[112px] lg:h-[112px] xl:h-[90px] left-2 right-2 w-auto mx-4 my-4 rounded-lg custom-shadow z-20 transition-all 
-      ${scrolled || !isFirstLoad ? 'opacity-100' : 'opacity-0'}`}>
+      ${(scrolled || isMobile) ? 'opacity-100' : 'opacity-0'}`}>
       <div className="container mx-auto px-8 py-8 flex justify-between items-center z-50">
         {/* Logo */}
         <div className="flex items-center">

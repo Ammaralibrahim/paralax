@@ -51,7 +51,7 @@ const cards = [
 
 export default function ScrollCards() {
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-white pt-32" id="features">
       <div className="px-4 py-8">
         {cards.map((card) => {
           return (

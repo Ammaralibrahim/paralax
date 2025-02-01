@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const MoHappyUserSay = () => {
   return (
-    <div className="bg-[#EAF4FF] py-16 px-2">
+    <div className="bg-[#EAF4FF] py-16 px-2 pt-32"  id="testimonials">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Başlık */}
         <h2 className="text-4xl font-bold text-[#4C9BF3] mb-4">Happy User Say</h2>
