@@ -11,7 +11,7 @@
 /* global.css */
 /* Çok ince scrollbar */
 ::-webkit-scrollbar {
-  width: 2px; /* Dikey scrollbar genişliği */
+  width: 0px; /* Dikey scrollbar genişliği */
   height: 4px; /* Yatay scrollbar yüksekliği */
 }
 

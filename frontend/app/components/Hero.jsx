@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -34,9 +33,16 @@ function Hero() {
 
     window.addEventListener("wheel", handleScrollStart, { passive: true });
     window.addEventListener("touchmove", handleScrollStart, { passive: true });
+
+    // Set a timer to scroll if no user interaction within 3 seconds
+    const scrollTimer = setTimeout(() => {
+      handleScrollStart();
+    }, 3000);
+
     return () => {
       window.removeEventListener("wheel", handleScrollStart);
       window.removeEventListener("touchmove", handleScrollStart);
+      clearTimeout(scrollTimer);
     };
   }, [initialScrollDone, scrolledState]);
 
@@ -58,27 +64,27 @@ function Hero() {
 
   useEffect(() => {
     if (initialScrollDone) {
-      document.body.style.overflow = "auto"; // Kaydırma etkin
+      document.body.style.overflow = "auto"; // Enable scrolling
     } else {
-      document.body.style.overflow = "hidden"; // Kaydırma engellenmiş
+      document.body.style.overflow = "hidden"; // Disable scrolling
     }
     return () => {
-      document.body.style.overflow = "auto"; // Sayfa temizlendiğinde kaydırma aktif olsun
+      document.body.style.overflow = "auto"; // Re-enable scrolling on cleanup
     };
   }, [initialScrollDone]);
 
   const getPositionStyles = (imageKey) => {
     const positions = {
       mezun: {
-        default: { bottom: 50, right: 320, width: 160, height: 160 },
-        scrolled: { bottom: 50, right: 230, width: 160, height: 160 },
+        default: { bottom: 120, right: 320, width: 160, height: 160 },
+        scrolled: { bottom: 40, right: 230, width: 160, height: 160 },
         mobile: {
           default: { bottom: 100, right: 70, width: 80, height: 80 },
           scrolled: { bottom: 100, right: 70, width: 80, height: 80 },
         },
       },
       girl: {
-        default: { bottom: 80, left: 320, width: 120, height: 120 },
+        default: { bottom: 170, left: 320, width: 120, height: 120 },
         scrolled: { bottom: 100, left: 130, width: 190, height: 190 },
         mobile: {
           default: { bottom: 150, left: 80, width: 80, height: 80 },
@@ -86,16 +92,16 @@ function Hero() {
         },
       },
       boy: {
-        default: { top: 110, right: 350, width: 120, height: 120 },
-        scrolled: { top: 70, right: 350, width: 180, height: 180 },
+        default: { top: 30, right: 350, width: 120, height: 120 },
+        scrolled: { top: 30, right: 300, width: 180, height: 180 },
         mobile: {
           default: { top: -60, right: 100, width: 80, height: 80 },
           scrolled: { top: -60, right: 100, width: 80, height: 80 },
         },
       },
       pen: {
-        default: { top: 10, left: 240, width: 160, height: 160 },
-        scrolled: { top: 140, left: 240, width: 160, height: 160 },
+        default: { top: -70, left: 240, width: 160, height: 160 },
+        scrolled: { top: 120, left: 220, width: 160, height: 160 },
         mobile: {
           default: { top: -10, left: 110, width: 60, height: 60 },
           scrolled: { top: -10, left: 110, width: 60, height: 60 },
@@ -118,9 +124,9 @@ function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white text-white h-dvh flex items-center justify-center overflow-hidden "
+      className="relative bg-white text-white h-[117vh] py-32 flex items-center justify-center overflow-hidden"
     >
-      {/* Logo animasyonu */}
+      {/* Logo animation */}
       <motion.div
         className="fixed z-50 hidden md:block"
         animate={
@@ -328,8 +334,21 @@ function Hero() {
               </div>
               Request a Demo Now
             </button>
+  
+            <div className="fixed top-32 flex justify-center  flex-col items-center">
+        <Image src="/heroicon.svg" alt="Logo" width={30} height={30} />
+
+        <span className="text-gray-400 text-sm md:text-[16px] font-normal pb-4">
+            Seamlessly integrate with your LMS to boost <br /> student outcomes
+            and reduce teacher workload
+          </span>
+          
+        </div>
+        
+
           
         </motion.div>
+        
       </motion.div>
     </section>
   );

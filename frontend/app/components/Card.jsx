@@ -69,7 +69,7 @@ export default function ScrollCards() {
   const getAnimations = (index) => {
     const cardCount = cards.length;
     const section = 1 / (cardCount + 1);
-    const animationRatio = 0.9;
+    const animationRatio = 1.1;
     const start = index * section;
     const end = start + section * animationRatio;
     const pauseEnd = (index + 1) * section;
@@ -91,8 +91,19 @@ export default function ScrollCards() {
 
     const titleOpacity = useTransform(
       scrollYProgress,
-      [start, start , finalEnd, finalPauseEnd],
-      [0, 20, 1, isLastCard ? 20 : 0]
+      [start, start + section * 1.1, finalEnd], // Make it stay visible for a longer time
+      [30, 1, 0], // Title stays visible until later and fades out right before the next title
+      { clamp: true }
+    );
+
+    // For the previous title's animation
+    const prevTitleY = useTransform(
+      scrollYProgress,
+      [start - section, start],
+      [0, -100],
+      {
+        clamp: true,
+      }
     );
 
     const prevTitleOpacity = useTransform(
@@ -101,10 +112,12 @@ export default function ScrollCards() {
       [index > 0 ? 1 : 0, 0]
     );
 
+    const yOffset = index * 7; // This is the added vertical offset (adjust the value as needed)
+
     const cardY = useTransform(
       scrollYProgress,
-      [start , finalEnd],
-      [1000, 0],
+      [start, finalEnd],
+      [1000 + yOffset, 0 + yOffset],
       { clamp: true }
     );
 
@@ -133,6 +146,7 @@ export default function ScrollCards() {
       titleRotate,
       titleOpacity,
       prevTitleOpacity,
+      prevTitleY,
       cardY,
       cardRotate,
       cardOpacity,
@@ -176,8 +190,7 @@ export default function ScrollCards() {
                       textShadow: "4px 4px 12px rgba(0,0,0,0.1)",
                     }}
                   >
-                    {cards[index - 1].title}  
-                    
+                    {cards[index - 1].title}
                   </motion.h2>
                 )}
 
@@ -189,12 +202,16 @@ export default function ScrollCards() {
                     opacity: titleOpacity,
                   }}
                 >
-                  <h2 className="text-[40px] md:text-[100px] font-black text-gray-800 text-center leading-[0.1] mb-11 flex items-end justify-center">
+                  <h2 className="text-[40px] md:text-[100px] font-black text-gray-800 text-center leading-[0] mb-11 flex items-end justify-center">
                     {card.title}
                     <span
-                  className="ml-4 w-[25px] h-[25px] md:w-[35px] md:h-[35px] rounded-full"
-                  style={{ backgroundColor: card.dotColor }}
-                />
+                      className="ml-4 w-[25px] h-[25px] md:w-[35px] md:h-[35px] rounded-full"
+                      style={{
+                        backgroundColor: card.dotColor,
+                        position: "relative", // Allow positioning relative to its normal position
+                        top: 60, // Adjust this value to move the dot down
+                      }}
+                    />
                   </h2>
                 </motion.div>
 

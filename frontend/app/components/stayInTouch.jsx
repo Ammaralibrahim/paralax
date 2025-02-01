@@ -6,7 +6,7 @@ const StayInTouch = () => {
       {/* Section Başlığı */}
    
 
-      <div className="bg-blue-500 text-white py-16 px-8 md:px-6 lg:px-24 xl:px-32 rounded-2xl shadow-2xl max-w-7xl w-full text-center space-y-12">
+      <div className="bg-[#00A2E1] text-white py-16 px-8 md:px-6 lg:px-24 xl:px-32 rounded-[40px]  max-w-7xl w-full text-center space-y-12">
         {/* Görsel */}
         <div>
           <img

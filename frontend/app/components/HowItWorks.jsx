@@ -25,7 +25,7 @@ const HowItWorks = () => {
           </div>
           <div className="p-6">
             <div className="flex items-start gap-4">
-              <div className="relative w-16 h-16 rounded-lg overflow-hidden p-3">
+              <div className="relative   rounded-lg overflow-hidden p-3">
                 <Image src="/1.svg" alt="Step 1" width={64} height={64} />
               </div>
               <div>
@@ -47,7 +47,7 @@ const HowItWorks = () => {
           <div className="h-[286px] w-full sm:w-[471px] bg-[#FF0F4D4D] rounded-xl  p-6 border-4 border-[#FF9EB7] text-black">
             <div className="flex items-center text-center justify-between mb-4">
               <div className="relative">
-                <Image src="/2.svg" alt="Book" width={32} height={32} className="text-green-600" />
+                <Image src="/2.svg" alt="Book" width={64} height={64} className="text-green-600" />
               </div>
               <h3 className="text-[32px] px-4 text-left text-black">Interact with AI mentor</h3>
               <div className="relative">
@@ -60,13 +60,13 @@ const HowItWorks = () => {
           </div>
 
           {/* Şerit (3. ve 4. Kart Arasında) */}
-          <div className="hidden sm:block absolute left-[914px] top-[610px] w-[47px]  h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
+          <div className="hidden sm:block absolute left-[914px] top-[710px] w-[47px]  h-[40px] border-t-4 border-b-4 border-[#8AB7FF] bg-[#cbd7fe] z-10"></div>
 
           {/* Mor Kart */}
           <div className="h-[286px] w-full sm:w-[471px] bg-[#cbd7fe] rounded-xl shadow-lg p-6 border-4 border-[#8AB7FF] text-black">
             <div className="flex items-center justify-between mb-4">
               <div className="relative">
-                <Image src="/3.svg" alt="Quiz" width={32} height={32} />
+                <Image src="/3.svg" alt="Quiz" width={54} height={54} />
               </div>
               <h3 className="text-[32px] px-4 text-left text-black">Complete quiz & assessment</h3>
               <div className="relative">
@@ -79,7 +79,7 @@ const HowItWorks = () => {
           </div>
         </div>
  
-        <div className="hidden sm:block absolute left-[650px] top-[450px] w-[52px] h-[28px] border-l-4 border-r-4 border-[#FF9EB7] bg-[#FF0F4D4D] z-10"></div>
+        <div className="hidden sm:block absolute left-[650px] top-[546px] w-[52px] h-[28px] border-l-4 border-r-4 border-[#FF9EB7] bg-[#FF0F4D4D] z-10"></div>
 
 
         {/* Turuncu Kart */}
@@ -95,7 +95,7 @@ const HowItWorks = () => {
           <div className="p-6">
             <div className="flex items-start gap-4">
               <div className="relative rounded-lg overflow-hidden p-3">
-                <Image src="/4.svg" alt="Trophy" width={64} height={64} />
+                <Image src="/4.svg" alt="Trophy" width={130} height={124} />
               </div>
               <div>
                 <h3 className="text-[30px] mb-2 text-black">Your level/Ranking position</h3>

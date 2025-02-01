@@ -87,7 +87,7 @@ function Navbar() {
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <Link legacyBehavior href={link.href} key={link.href}>
-              <a className="text-gray-600 font-normal hover:text-white font-bold hover:text-[#5E3CB5] focus:text-[#5E3CB5] px-2 py-1 rounded transition-all duration-200 ease-in-out">
+              <a className="text-gray-600 font-normal hover:text-[#383289] font-bold hover:text-[#5E3CB5] focus:text-[#5E3CB5] px-2 py-1 rounded transition-all duration-200 ease-in-out">
                 {link.text}
               </a>
             </Link>
